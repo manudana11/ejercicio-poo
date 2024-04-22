@@ -42,3 +42,57 @@ class Profesor extends Persona {
 
 let miProfesor = new Profesor('Marta', 30, 'Mujer', 'Informatica', 'Alto');
 console.log(miProfesor.asignar());
+
+class Warrior {
+    constructor(life, power) {
+        this.life = life;
+        this.power = power;
+    }
+    attack() {
+        return this.power;
+    }
+    defend(damage) {
+        this.life -= damage;
+        return `Su vide restante es ${this.life}`;
+    }
+};
+
+class Maya extends Warrior {
+    constructor(life, power) {
+        super(life, power);
+    }
+    drinkColaCao() {
+        this.power += 10;
+    }
+};
+
+class Aztec extends Warrior {
+    constructor(life, power) {
+        super(life, power);
+    }
+    drinkNesquik() {
+        this.life += 10;
+    }
+};
+
+const pichincho = new Maya(79, 83);
+
+const chinchopo = new Aztec(100, 75);
+
+console.log('Batalla');
+
+chinchopo.drinkNesquik();
+
+console.log('Azteca bebe Nesquik', chinchopo.life);
+
+pichincho.drinkColaCao()
+
+console.log('Maya bebe Cola Cao', pichincho.power);
+
+chinchopo.defend(pichincho.attack());
+
+console.log('Los Maya han atacado a los Azteca. Tu vide es', chinchopo.life);
+
+pichincho.defend(chinchopo.attack());
+
+console.log(pichincho);
